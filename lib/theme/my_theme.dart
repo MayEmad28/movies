@@ -38,24 +38,22 @@ class my_theme{
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
-        size: 25,
+        size: 30,
         color: yellowcolor
       ),
       unselectedIconTheme: IconThemeData(
-        size: 20,
+        size: 25,
         color: whitecolor
       ),
       selectedLabelStyle: GoogleFonts.poppins(
         textStyle: TextStyle(
-          color: yellowcolor,
-          fontSize: 8,
+          fontSize: 10,
           fontWeight:FontWeight.w400,
         ),
       ),
       unselectedLabelStyle:GoogleFonts.inter(
         textStyle: TextStyle(
-          color: whitecolor,
-          fontSize: 8,
+          fontSize: 10,
           fontWeight:FontWeight.w400,
         ),
       ),

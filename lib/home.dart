@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/browse/browse_screen.dart';
-import 'package:movies_app/home/home_screen.dart';
 import 'package:movies_app/search/search_screen.dart';
 import 'package:movies_app/theme/my_theme.dart';
 import 'package:movies_app/watchlist/watchList_screen.dart';
+
+import 'home_teb/home_tab.dart';
 class home extends StatefulWidget {
   static  String routeName='home';
 
@@ -16,11 +17,14 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       bottomNavigationBar: Theme(
         data:Theme.of(context).copyWith(
-          canvasColor: my_theme.blackcolor,
+          canvasColor: Color(0xff1A1A1A),
         ),
         child: BottomNavigationBar(
+          selectedItemColor: my_theme.yellowcolor,
+          currentIndex: selectedIndex,
           onTap: (index){
             selectedIndex=index;
             setState(() {
@@ -28,12 +32,12 @@ class _homeState extends State<home> {
             });
           },
           items: [
-            BottomNavigationBarItem(label: 'HOME',icon: ImageIcon(AssetImage('assets/images/Home icon.png'))
+            BottomNavigationBarItem(
+                label: 'HOME',icon:Icon(Icons.home)
             ),
-            BottomNavigationBarItem(label: 'SEARCH',icon: ImageIcon(AssetImage('assets/images/search.png'))),
-            BottomNavigationBarItem(label: 'BROWSE',icon: ImageIcon(AssetImage('assets/images/browse.png'))),
-            BottomNavigationBarItem(label: 'WATCHLIST',icon: ImageIcon(AssetImage('assets/images/watchList.png'))),
-
+            BottomNavigationBarItem(label: 'SEARCH',icon: Icon(Icons.search)),
+            BottomNavigationBarItem(label: 'BROWSE',icon: Icon(Icons.movie_creation)),
+            BottomNavigationBarItem(label: 'WATCHLIST', icon: Icon(Icons.class_)),
           ],
         ),
       ),
@@ -42,7 +46,7 @@ class _homeState extends State<home> {
   }
 
   List<Widget> tabs=[
-    home_screen(),
+    home_tab(),
     search_screen(),
     browse_screen(),
     watchList_screen()
